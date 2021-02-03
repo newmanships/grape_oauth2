@@ -26,6 +26,7 @@ module Grape
 
             # Body
             body response.body
+            status 200 if body['token'].present?
           end
         end
       end

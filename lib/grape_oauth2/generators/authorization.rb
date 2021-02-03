@@ -17,7 +17,6 @@ module Grape
                 execute_default(request, response)
               end
             end
-
             Grape::OAuth2::Responses::Authorization.new(authorization.call(env))
           rescue Rack::OAuth2::Server::Authorize::BadRequest => error
             error_response(error)

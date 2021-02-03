@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'grape', '~> 1.0'
+gem 'grape'
 gem 'rack-oauth2'
 
 gem 'activerecord'

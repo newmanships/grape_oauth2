@@ -20,11 +20,11 @@ module Grape
             case request.response_type
             when :code
               # resource owner can't be nil!
-              authorization_code = config.access_grant_class.create_for(client, nil, response.redirect_uri)
+              authorization_code = config.access_grant_class.create_for(client, client.resource_owner, response.redirect_uri)
               response.code = authorization_code.token
             when :token
               # resource owner can't be nil!
-              access_token = config.access_token_class.create_for(client, nil, scopes_from(request))
+              access_token = config.access_token_class.create_for(client, client.resource_owner, scopes_from(request))
               response.access_token = expose_to_bearer_token(access_token)
             end
 
